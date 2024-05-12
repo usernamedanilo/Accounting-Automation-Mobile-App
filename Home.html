@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting Automation App</title>
+    <style>
+        /* CSS styles for navigation bars */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: linear-gradient(135deg, #8A2BE2, #FF69B4), indigo; /* Indigo background with purple to pink gradient */
+            color: white; /* Font color */
+            height: 60px;
+        }
+
+        /* Add animation styles here */
+        .navbar a {
+            text-decoration: none;
+            color: inherit; /* Inherit font color */
+            display: flex;
+            align-items: center;
+        }
+
+/* Animation for navigation bars */
+        .navbar a {
+            transition: transform 0.3s ease;
+        }
+        .navbar a:hover {
+            transform: scale(1.1);
+        }
+
+/* Icon styles */
+        .navbar a::before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            /* Add background image or icon font here */
+        }
+
+ /* Home icon */
+        .navbar a[href="#home"]::before {
+            background-image: url('home-icon.png'); /* Add your home icon image path */
+        }
+
+/* Prep icon */
+        .navbar a[href="#prep"]::before {
+            background-image: url('prep-icon.png'); /* Add your prep icon image path */
+        }
+
+ /* Calculator icon */
+        .navbar a[href="#calculator"]::before {
+            background-image: url('calculator-icon.png'); /* Add your calculator icon image path */
+        }
+
+ /* CSS styles for calculator section */
+        .calculator {
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 20px 0;
+            max-width: 400px; /* Adjust the width as needed */
+            margin: auto; /* Center the calculator box */
+}
+
+        .input-field {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+ .result {
+            margin-top: 10px;
+        }
+ #tabs {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+padding: 20px;
+        overflow: hidden;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+justify-content: center;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    li {
+        margin: 10px;
+    }
+
+ .tabLink {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+ .tabLink:hover {
+        background-color: #ddd;
+    }
+
+    .tabContent {
+        display: none;
+        padding: 20px;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+h2 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #666;
+    }
+
+    @keyframes fadeIn {
+from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+@media (max-width: 768px) {
+        #tabs {
+            width: 100%;
+        }
+        .tabLink {
+            padding: 10px;
+        }
+    }
+/* CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+.container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 36px;
+color: #333;
+            margin-bottom: 30px;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+margin-top: 20px;
+        }
+        .option {
+            margin: 0 10px;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+cursor: pointer;
+            transition: background-color 0.3s;
+        }
+       .option:hover {
+            background-color: #45a049;
+        }
+        .feedback {
+            font-size: 20px;
+            margin-top: 30px;
+        }
+ /* Add more styles for other sections as needed */
+    </style>
+</head>
+<body>
+   <!-- Navigation bars -->
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#prep">Prep</a>
+        <a href="#calculator">Calculator</a>
+    </div>
+ <!-- Content for each section -->
+    <div id="home">
+        <!-- Add content for Home section here -->
+        <h1>Welcome to Home</h1>
+   <div id="tabs">
+        <ul>
+            <div class="flashcard-container">
+        <div class="flashcard">
+            <div class="front">
+                <h2>Double-Entry Bookkeeping</h2>
+                <p>Double-entry bookkeeping is a system where every transaction is recorded in at least two accounts: a debit and a credit.</p>
+            </div>
+            <div class="back">
+                <h2>Double-Entry Bookkeeping</h2>
+                <p>Double-entry bookkeeping ensures that the accounting equation (Assets = Liabilities + Equity) remains in balance after each transaction.</p>
+            </div>
+        </div>
+ <div class="flashcard">
+            <div class="front">
+                <h2>Debits and Credits</h2>
+                <p>In double-entry bookkeeping, debits and credits must always equal each other, ensuring the accounting equation stays balanced.</p>
+            </div>
+            <div class="back">
+                <h2>Debits and Credits</h2>
+                <p>Debits represent increases in assets and expenses or decreases in liabilities and revenues, while credits represent decreases in assets and expenses or increases in liabilities and revenues.</p>
+            </div>
+        </div>
+
+        <div class="flashcard">
+            <div class="front">
+                <h2>Assets</h2>
+                <p>Assets are resources owned by the business, such as cash, inventory, equipment, and property.</p>
+         </div>
+            <div class="back">
+                <h2>Assets</h2>
+                <p>Debits increase assets, while credits decrease assets.</p>
+            </div>
+        </div>
+
+        <div class="flashcard">
+            <div class="front">
+                <h2>Liabilities</h2>
+                <p>Liabilities are obligations owed by the business, such as loans, accounts payable, and accrued expenses.</p>
+            </div>
+            <div class="back">
+                <h2>Liabilities</h2>
+                <p>Credits increase liabilities, while debits decrease liabilities.</p>
+            </div>
+        </div>
+<div class="flashcard">
+            <div class="front">
+                <h2>Equity</h2>
+                <p>Equity represents the owner's stake in the business and is calculated as assets minus liabilities.</p>
+            </div>
+            <div class="back">
+                <h2>Equity</h2>
+                <p>Owner's investments and retained earnings increase equity (credits), while owner withdrawals decrease equity (debits).</p>
+            </div>
+        </div>
+
+        <div class="flashcard">
+            <div class="front">
+                <h2>Revenue</h2>
+                <p>Revenue is the income earned by the business from its primary activities, such as sales of goods or services.</p>
+            </div>
+ <div class="back">
+                <h2>Revenue</h2>
+                <p>Revenue increases equity (credits).</p>
+            </div>
+        </div>
+
+        <div class="flashcard">
+            <div class="front">
+                <h2>Expenses</h2>
+                <p>Expenses are the costs incurred by the business to generate revenue, such as salaries, rent, and utilities.</p>
+            </div>
+            <div class="back">
+                <h2>Expenses</h2>
+                <p>Expenses decrease equity (debits).</p>
+            </div>
+        </div>
+ <div class="flashcard">
+            <div class="front">
+                <h2>Chart of Accounts</h2>
+                <p>A chart of accounts is a list of all accounts used by a business, organized by category and assigned a unique account number.</p>
+            </div>
+            <div class="back">
+                <h2>Chart of Accounts</h2>
+                <p>The chart of accounts provides a systematic way to record and track financial transactions.</p>
+            </div>
+        </div>
+
+        <div class="flashcard">
+            <div class="front">
+                <h2>Trial Balance</h2>
+                <p>A trial balance is a report that lists the balances of all accounts in the ledger to ensure debits equal credits.</p>
+            </div>
+           <div class="back">
+                <h2>Trial Balance</h2>
+                <p>If the trial balance does not balance, it indicates errors in the accounting records that need to be corrected.</p>
+            </div>
+        </div>
+
+        <div class="flashcard">
+            <div class="front">
+                <h2>General Ledger</h2>
+                <p>The general ledger is a complete record of all financial transactions of a business, organized by account.</p>
+            </div>
+            <div class="back">
+                <h2>General Ledger</h2>
+                <p>The general ledger serves as the foundation for preparing financial statements and analyzing the financial health of the business.</p>
+            </div>
+       <!-- Calculator section -->
+        <div class="calculator">
+            <!-- Interface Elements -->
+            <!-- Percentage Calculator -->
+            <div class="percentage-calculator">
+                <input type="text" id="percentageInput" class="input-field" placeholder="Enter percentage">
+                <input type="text" id="percentageValue" class="input-field" placeholder="Enter value">
+                <button onclick="calculatePercentage()">Calculate</button>
+                <div id="percentageResult" class="result"></div>
+            </div>
+
+            <!-- Tax Calculator -->
+            <div class="tax-calculator">
+                <input type="text" id="taxableIncome" class="input-field" placeholder="Enter taxable income">
+                <input type="text" id="taxRate" class="input-field" placeholder="Enter tax rate (%)">
+                <button onclick="calculateTax()">Calculate Tax</button>
+                <div id="taxResult" class="result"></div>
+            </div>
+ <!-- Loan Calculator -->
+            <div class="loan-calculator">
+                <input type="text" id="loanAmount" class="input-field" placeholder="Loan Amount">
+                <input type="text" id="interestRate" class="input-field" placeholder="Interest Rate (%)">
+                <input type="text" id="loanTerm" class="input-field" placeholder="Loan Term (years)">
+                <button onclick="calculateLoan()">Calculate Loan</button>
+                <div id="loanResult" class="result"></div>
+            </div>
+
+            <!-- Depreciation Calculator -->
+            <div class="depreciation-calculator">
+                <input type="text" id="assetCost" class="input-field" placeholder="Asset Cost">
+                <input type="text" id="salvageValue" class="input-field" placeholder="Salvage Value">
+                <input type="text" id="usefulLife" class="input-field" placeholder="Useful Life (years)">
+                <button onclick="calculateDepreciation()">Calculate Depreciation</button>
+                <div id="depreciationResult" class="result"></div>
+           </div>
+           <!-- Profit Margin Calculator -->
+        <div class="profit-margin-calculator">
+            <input type="text" id="revenue" class="input-field" placeholder="Revenue">
+            <input type="text" id="expenses" class="input-field" placeholder="Expenses">
+            <button onclick="calculateProfitMargin()">Calculate Profit Margin</button>
+            <div id="profitMarginResult" class="result"></div>
+        </div>
+          <!-- Break-Even Analysis -->
+        <div class="break-even-analysis">
+            <!-- Break-Even Analysis code -->
+            <input type="text" id="fixedCosts" class="input-field" placeholder="Fixed Costs">
+            <input type="text" id="variableCosts" class="input-field" placeholder="Variable Costs per Unit">
+            <button onclick="calculateBreakEven()">Calculate Break-Even Point</button>
+            <div id="breakEvenResult" class="result"></div>
+        </div>
+         <!-- Time Value of Money Calculator -->
+        <div class="time-value-money-calculator">
+          
+           <div class="container">
+        <h1>True or False Quiz</h1>
+        <div class="question" id="question"></div>
+   <div class="options" id="options"></div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+        </div>
+    </div>
+
+    <!-- JavaScript code -->
+    <script>
+        // Navigation functionality
+        document.querySelector(".navbar").addEventListener("click", function(event) {
+            if (event.target.tagName === "A") {
+                showSection(event.target.getAttribute("href").substring(1));
+            }
+        });
+
+        // Default: Show Home section
+        showSection("home");
+
+        // Percentage calculation function
+        function calculatePercentage() {
+            let percentage = parseFloat(document.getElementById("percentageInput").value);
+let value = parseFloat(document.getElementById("percentageValue").value);
+            let result = (percentage / 100) * value;
+            document.getElementById("percentageResult").innerText = "Result: " + result.toFixed(2);
+        }
+
+        // Tax calculation function
+        function calculateTax() {
+            let taxableIncome = parseFloat(document.getElementById("taxableIncome").value);
+            let taxRate = parseFloat(document.getElementById("taxRate").value);
+            let taxAmount = (taxableIncome * taxRate) / 100;
+            document.getElementById("taxResult").innerText = "Tax Amount: " + taxAmount.toFixed(2);
+        }
+
+        // Loan calculation function
+        function calculateLoan() {
+            let loanAmount = parseFloat(document.getElementById("loanAmount").value);
+let interestRate = parseFloat(document.getElementById("interestRate").value);
+            let loanTerm = parseFloat(document.getElementById("loanTerm").value);
+            let monthlyInterestRate = interestRate / 100 / 12;
+            let numberOfPayments = loanTerm * 12;
+            let monthlyPayment = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+            document.getElementById("loanResult").innerText = "Monthly Payment: " + monthlyPayment.toFixed(2);
+        }
+
+        // Depreciation calculation function
+        function calculateDepreciation() {
+            let assetCost = parseFloat(document.getElementById("assetCost").value);
+            let salvageValue = parseFloat(document.getElementById("salvageValue").value);
+            let usefulLife = parseFloat(document.getElementById("usefulLife").value);
+let depreciationExpense = (assetCost - salvageValue) / usefulLife;
+            document.getElementById("depreciationResult").innerText = "Depreciation Expense: " + depreciationExpense.toFixed(2);
+        }
+
+        // Function to show a particular section
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll("div[id^='']").forEach(function(section) {
+                section.style.display = "none";
+            });
+            // Show the selected section
+            document.getElementById(sectionId).style.display = "block";
+        }
+      // Profit margin calculation function
+        function calculateProfitMargin() {
+            let revenue = parseFloat(document.getElementById("revenue").value);
+            let expenses = parseFloat(document.getElementById("expenses").value);
+let profit = revenue - expenses;
+            let profitMargin = (profit / revenue) * 100;
+            document.getElementById("profitMarginResult").innerText = "Profit Margin: " + profitMargin.toFixed(2) + "%";
+        }
+      function calculateBreakEven() {
+    let fixedCosts = parseFloat(document.getElementById("fixedCosts").value);
+    let variableCosts = parseFloat(document.getElementById("variableCosts").value);
+    if (variableCosts <= 0) {
+        document.getElementById("breakEvenResult").innerText = "Variable costs per unit must be greater than zero";
+    } else {
+        let breakEvenPoint = fixedCosts / (1 - (variableCosts / 100));
+        document.getElementById("breakEvenResult").innerText = "Break-Even Point: " + breakEvenPoint.toFixed(2);
+    }function calculatePresentValue() {
+    let futureValue = parseFloat(document.getElementById("futureValue").value);
+    let interestRate = parseFloat(document.getElementById("interestRateTVM").value) / 100;
+    let timePeriod = parseFloat(document.getElementById("timePeriodTVM").value);
+    let presentValue = futureValue / Math.pow(1 + interestRate, timePeriod);
+    document.getElementById("timeValueMoneyResult").innerText = "Present Value: " + presentValue.toFixed(2);
+}
+
+function calculateFutureValue() {
+    let presentValue = parseFloat(document.getElementById("presentValue").value);
+    let interestRate = parseFloat(document.getElementById("interestRateTVM").value) / 100;
+    let timePeriod = parseFloat(document.getElementById("timePeriodTVM").value);
+    let futureValue = presentValue * Math.pow(1 + interestRate, timePeriod);
+document.getElementById("timeValueMoneyResult").innerText = "Future Value: " + futureValue.toFixed(2);
+}
+
+}
+ // Array of quiz questions and answers
+        const quizData = [
+            { question: "Assets are liabilities.", answer: false },
+            { question: "Depreciation increases the value of an asset.", answer: false },
+            { question: "The balance sheet shows a company's financial position at a specific point in time.", answer: true },
+            { question: "Revenue is recorded when cash is received, not when it's earned.", answer: false },
+            { question: "Equity represents the amount of money invested by shareholders into the company.", answer: true },
+            { question: "A credit increases the balance of an expense account.", answer: false },
+            { question: "Accounts Receivable is a liability.", answer: false },
+            { question: "Accrual accounting records revenues and expenses when they are incurred, not necessarily when cash is exchanged.", answer: true },
+            { question: "Net income can be negative.", answer: true },
+            { question: "The cash flow statement shows only cash transactions.", answer: false }
+            // Add more questions here...
+];
+
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const feedbackElement = document.getElementById('feedback');
+
+        let currentQuestionIndex = 0;
+
+        // Function to load question and options
+        function loadQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = `
+                <button class="option" onclick="checkAnswer(true)">True</button>
+                <button class="option" onclick="checkAnswer(false)">False</button>
+            `;
+            feedbackElement.textContent = "";
+        }
+      // Function to check answer
+        function checkAnswer(userAnswer) {
+            const currentQuestion = quizData[currentQuestionIndex];
+            if (userAnswer === currentQuestion.answer) {
+                feedbackElement.textContent = 'Correct!';
+                feedbackElement.style.color = '#4CAF50';
+            } else {
+                feedbackElement.textContent = 'Incorrect!';
+                feedbackElement.style.color = '#f44336';
+            }
+            // Move to the next question
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                setTimeout(loadQuestion, 1000); // Load next question after 1 second
+            } else {
+                setTimeout(() => {
+                    feedbackElement.textContent = 'Quiz completed!';
+                    feedbackElement.style.color = '#333';
+                }, 1000);
+            }
+        }
+
+        // Initial load
+        loadQuestion();
+      // Function to store quiz data in localStorage
+function storeQuizData() {
+    localStorage.setItem('quizData', JSON.stringify(quizData));
+}
+
+// Function to retrieve quiz data from localStorage
+function getQuizData() {
+    const storedData = localStorage.getItem('quizData');
+    return storedData ? JSON.parse(storedData) : null;
+}
+
+// Function to load quiz data
+function loadQuizData() {
+    const storedQuizData = getQuizData();
+    if (storedQuizData) {
+        quizData = storedQuizData;
+        loadQuestion();
+    }
+}
+
+// Check if navigator is online
+if (navigator.onLine) {
+    // Fetch quiz data from server
+    fetch('quizData.json')
+        .then(response => response.json())
+        .then(data => {
+            quizData = data;
+            storeQuizData();
+            loadQuestion();
+        })
+        .catch(error => {
+            console.error('Error fetching quiz data:', error);
+            loadQuizData(); // Load quiz data from localStorage if fetch fails
+        });
+} else {
+    // Load quiz data from localStorage if offline
+    loadQuizData();
+}
+
+    </script>
+</body>
+</html>
